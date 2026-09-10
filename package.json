@@ -1,0 +1,10 @@
+{
+  "name": "Social-Network",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"pnpm --dir frontend run dev\" \"pnpm --dir backend start:dev\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.0"
+  }
+}
