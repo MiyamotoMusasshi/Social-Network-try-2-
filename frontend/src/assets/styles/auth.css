@@ -1,0 +1,32 @@
+.auth-form{
+background: radial-gradient(circle at 100% 100%, #080512 0, #080512 6px, transparent 6px) 0% 0%/8px 8px no-repeat,
+            radial-gradient(circle at 0 100%, #080512 0, #080512 6px, transparent 6px) 100% 0%/8px 8px no-repeat,
+            radial-gradient(circle at 100% 0, #080512 0, #080512 6px, transparent 6px) 0% 100%/8px 8px no-repeat,
+            radial-gradient(circle at 0 0, #080512 0, #080512 6px, transparent 6px) 100% 100%/8px 8px no-repeat,
+            linear-gradient(#080512, #080512) 50% 50%/calc(100% - 4px) calc(100% - 16px) no-repeat,
+            linear-gradient(#080512, #080512) 50% 50%/calc(100% - 16px) calc(100% - 4px) no-repeat,
+            radial-gradient(at 52% 84%, #8d6bb1 0%, #878ac5 41.326%, #8189cb 71.287%, #b495ea 100%) 66% 9%/180% 155%;
+border-radius: 25px;
+padding: 10px;
+box-sizing: border-box;
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+width: 28vw;
+height: 70vh;
+}
+@media(max-width:1250px){
+    .auth-form{
+        width: 38vw;
+        height: 70vh;
+    }
+
+}
+@media(max-width:800px){
+    .auth-form{
+        width: 70vw;
+        height: 80vh;
+    }
+
+}

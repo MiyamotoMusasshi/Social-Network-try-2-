@@ -1,0 +1,133 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  margin: 0;
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: #02030a;
+  color: white;
+}
+
+.space-background {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      rgba(38, 25, 90, 0.35) 0%,
+      rgba(10, 8, 30, 0.25) 30%,
+      rgba(2, 3, 10, 1) 75%
+    ),
+    #02030a;
+}
+
+/* Контент сайта */
+.content {
+  position: relative;
+  z-index: 10;
+  min-height: 100vh;
+}
+
+/* Звёзды */
+.stars {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  background-image:
+    radial-gradient(circle, rgba(255, 255, 255, 0.9) 1px, transparent 1px),
+    radial-gradient(circle, rgba(150, 170, 255, 0.7) 1px, transparent 1px),
+    radial-gradient(circle, rgba(255, 255, 255, 0.5) 1px, transparent 1px);
+
+  background-size:
+    90px 90px,
+    140px 140px,
+    220px 220px;
+
+  background-position:
+    10px 20px,
+    50px 80px,
+    120px 40px;
+
+  opacity: 0.45;
+}
+
+/* Космическая туманность */
+.nebula {
+  position: absolute;
+  z-index: 2;
+
+  width: 700px;
+  height: 700px;
+
+  border-radius: 50%;
+
+  filter: blur(100px);
+  pointer-events: none;
+}
+
+.nebula-1 {
+  top: -300px;
+  left: -250px;
+
+  background: rgba(55, 30, 150, 0.18);
+}
+
+.nebula-2 {
+  right: -300px;
+  bottom: -300px;
+
+  background: rgba(20, 70, 180, 0.15);
+}
+
+/* Небольшая анимация звёзд */
+.stars {
+  animation: stars-move 30s linear infinite;
+}
+
+@keyframes stars-move {
+  from {
+    transform: translate(0, 0);
+  }
+
+  to {
+    transform: translate(-40px, -30px);
+  }
+}
+.space-background::before {
+  content: "";
+
+  position: absolute;
+  z-index: 2;
+
+  width: 800px;
+  height: 800px;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    rgba(91, 56, 190, 0.16) 0%,
+    rgba(55, 30, 130, 0.08) 30%,
+    transparent 70%
+  );
+
+  filter: blur(20px);
+  pointer-events: none;
+}
