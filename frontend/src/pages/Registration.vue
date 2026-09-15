@@ -4,5 +4,5 @@ import "../assets/styles/auth.css";
 </script>
 
 <template>
-  <AuthForm action="/" />
+  <AuthForm action="/adjsjdas" />
 </template>
