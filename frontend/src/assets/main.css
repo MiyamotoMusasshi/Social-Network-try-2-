@@ -132,7 +132,7 @@ body {
   pointer-events: none;
 }
 .main-btn{
-  width: 100%;
+  width: 80%;
   height: 6vh;
   border: none;
   border-radius: 40px;
@@ -151,7 +151,7 @@ body {
   }
 }
 .secondry-btn{
-  width: 100%;
+  width: 80%;
   height: 6vh;
   border: none;
   border-radius: 40px;
