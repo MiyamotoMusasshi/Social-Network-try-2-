@@ -4,5 +4,8 @@ import "../assets/styles/auth.css";
 </script>
 
 <template>
-  <AuthForm action="/adjsjdas" :is-registration="true" />
+  <AuthForm
+    action="http://localhost:3000/registration"
+    :is-registration="true"
+  />
 </template>

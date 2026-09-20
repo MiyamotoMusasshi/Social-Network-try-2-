@@ -3,6 +3,8 @@ import iconUsername from "../../assets/imgs/icon_username.png";
 import iconEmail from "../../assets/imgs/icon_email.png";
 import iconPassword from "../../assets/imgs/icon_password.png";
 import InputField from "./InputField.vue";
+import { ref } from "vue";
+import axios from "axios";
 
 interface Props {
   action: string;
@@ -10,10 +12,22 @@ interface Props {
 }
 
 const props = defineProps<Props>();
+const loading = ref<boolean>(false);
+const errorMessage = ref<string>("");
+
+async function handleFetch(event: any) {
+  loading.value = true;
+  errorMessage.value = "";
+}
 </script>
 
 <template>
-  <form :action="props.action" method="POST" class="auth-form">
+  <form
+    :action="props.action"
+    method="POST"
+    class="auth-form"
+    @submit.prevent="handleFetch"
+  >
     <div class="auth-top-info">
       <img src="../../assets/imgs/icon.png" />
     </div>
@@ -47,7 +61,7 @@ const props = defineProps<Props>();
         :is-password="true"
       />
       <InputField
-        name="retun-password"
+        name="return-password"
         type="password"
         placeholder="Return Password"
         :icon="iconPassword"
@@ -56,8 +70,10 @@ const props = defineProps<Props>();
       />
 
       <button :class="isRegistration ? 'main-btn' : 'secondry-btn'">
-        {{ isRegistration ? "Sign up" : "Sign in" }}
+        {{ !loading ? (isRegistration ? "Sign up" : "Sign in") : "Loading..." }}
       </button>
+
+      <span style="color: red">{{ errorMessage }}</span>
     </div>
     <div
       style="

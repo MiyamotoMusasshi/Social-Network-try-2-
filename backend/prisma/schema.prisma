@@ -21,3 +21,8 @@ model Users{
   friends_count Int
   password String
 }
+
+model TmpCodes{
+  email String @unique
+  code Int
+}
