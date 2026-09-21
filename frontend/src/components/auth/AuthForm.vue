@@ -4,7 +4,7 @@ import iconEmail from "../../assets/imgs/icon_email.png";
 import iconPassword from "../../assets/imgs/icon_password.png";
 import InputField from "./InputField.vue";
 import { ref } from "vue";
-import axios from "axios";
+import { ApiRequests } from "@/utils/helpers/ApiRequest.ts";
 
 interface Props {
   action: string;
@@ -15,9 +15,14 @@ const props = defineProps<Props>();
 const loading = ref<boolean>(false);
 const errorMessage = ref<string>("");
 
-async function handleFetch(event: any) {
+async function handleFetch(event: SubmitEvent) {
   loading.value = true;
   errorMessage.value = "";
+
+  const form = event.target as HTMLFormElement;
+  const formData = JSON.stringify(Object.fromEntries(new FormData(form)));
+
+  const test = await ApiRequests.post(formData, props.action);
 }
 </script>
 
@@ -61,7 +66,7 @@ async function handleFetch(event: any) {
         :is-password="true"
       />
       <InputField
-        name="return-password"
+        name="return_password"
         type="password"
         placeholder="Return Password"
         :icon="iconPassword"
@@ -69,7 +74,10 @@ async function handleFetch(event: any) {
         v-if="props.isRegistration"
       />
 
-      <button :class="isRegistration ? 'main-btn' : 'secondry-btn'">
+      <button
+        :class="isRegistration ? 'main-btn' : 'secondry-btn'"
+        :disabled="loading"
+      >
         {{ !loading ? (isRegistration ? "Sign up" : "Sign in") : "Loading..." }}
       </button>
 
